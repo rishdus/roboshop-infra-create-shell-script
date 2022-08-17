@@ -14,8 +14,7 @@ create_ec2() {
       --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}"\
       --security-group-ids ${SGID} \
       | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
-
-
+      echo Serve IP Address = ${PRIVATE_IP}
 }
 
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=Centos-7-DevOps-Practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
