@@ -4,7 +4,7 @@
     - name: Install botocore and boto3
       ansible.builtin.pip:
         name: "{{item}}"
-        executable: pip3.3
+        executable: pip3
       loop:
         - botocore
         - boto3
